@@ -1,0 +1,45 @@
+mixin running-line()
+    - 
+        var lines = [
+            'Дело помощи утопающим — дело рук самих утопающих!',
+            'Шахматы двигают вперед не только культуру, но и экономику!',
+            'Лед тронулся, господа присяжные заседатели!'
+        ];
+    .running-line
+        .running-line__container
+            .running-line__group
+                for l in lines
+                    span.running-line__item= l
+            .running-line__group
+                for l in lines
+                    span.running-line__item= l
+
+mixin participant-card(title)
+    .participant-card
+        .participant-card__img
+            .participant-card__img-bg
+            img(src="/static/img/participants/participant_empty.svg" alt="")
+        .participant-card__title= title
+        .participant-card__text Чемпион мира по шахматам
+        a(href="#").btn.btn-short.btn-outline-blue.participant-card__btn
+            span Подробнее
+
+mixin table()
+    - 
+        var table_content = [
+            ['Место проведения:', 'Клуб «Картонажник»'],
+            ['Дата и время мероприятия:', '22 июня 1927 г. в 18:00'],
+            ['Стоимость входных билетов:', '20 коп.'],
+            ['Плата за игру:', '50 коп.'],
+            ['Взнос на телеграммы:', '21 руб. 16 коп.', '100 руб.']
+        ]
+    .table
+        for t in table_content
+            .table-row
+                .table-header= t[0]
+                if t[2]
+                    .table-text
+                        span.crossed= t[2]
+                        = t[1]
+                else
+                    .table-text= t[1]

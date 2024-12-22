@@ -1,0 +1,124 @@
+extend layouts/_base
+
+block content
+    section#intro.intro
+        .intro__bg
+            .intro__bg-texture
+            .intro__bg-city
+            .container
+                .intro__bg-pawn
+                .intro__bg-horse
+        .container
+            a(href="/").intro__logo
+                img(src="/static/img/logo.svg")
+            .intro__title
+                .intro__title-line Превратите уездный город
+                .intro__title-line.intro__title-line--center в столицу
+                .intro__title-line.intro__title-line--right земного шара
+                .intro__text Оплатите взнос на телеграммы для организации Международного васюкинского турнира по шахматам
+                .intro__buttons
+                    a(href="#announcement").btn.btn-long.btn-dark
+                        span Поддержать
+                        span шахматную мысль
+                    a(href="#participants").btn.btn-long.btn-outline-dark
+                        span Подробнее
+                        span о турнире
+    +running-line()
+    section#announcement
+        .container
+            .announcement
+                .announcement__text
+                    img.announcement__image(src='/static/img/second/chessers.png' alt='Шахматы')
+                    span.announcement__text-part1 Чтобы поддержать Международный васюкинский турнир 
+                    span.announcement__text-part2
+                        | посетите лекцию на тему: 
+                        span.text-red «Плодотворная дебютная идея»
+            .clear-both
+            .chess-blow
+                .chess-blow__img
+                    img(src="/static/img/second/chess_blow.png")
+                .chess-blow__right
+                    .chess-blow__text и Сеанс 
+                        span.text-red одновременной игры в шахматы на 160 досках 
+                        | гроссмейстера О. Бендера
+                    +table()
+                    .chess-blow__subtext.text-blue По всем вопросам обращаться в администрацию к К. Михельсону
+    .clear-both
+    section#plan.plan
+        .container
+            .slider-container.plan-slider(data-show-dots="true" data-show-numbers="false")
+                .slider__header Этапы преображения
+                    .plan-slider__miniheader Васюков 
+                        span.text-blue Будущие источники обогащения васюкинцев
+                .slider
+                    .slider__item.slider__item--double
+                        .plan-card.plan-card--double
+                            .plan-card__inner
+                                .plan-card__num 1
+                                .plan-card__text Строительство железнодорожной магистрали Москва-Васюки
+                            .plan-card__inner
+                                .plan-card__num 2
+                                .plan-card__text Открытие фешенебельной гостиницы «Проходная пешка» и других небоскрёбов
+                    .slider__item.slider__item--height 
+                        .plan-card
+                            .plan-card__inner
+                                .plan-card__num 3
+                                .plan-card__text Поднятие сельского хозяйства в радиусе на тысячу километров: производство овощей, фруктов, икры, шоколадных конфет
+                    .slider__item.slider__item--double
+                        .plan-card.plan-card--double
+                            .plan-card__inner
+                                .plan-card__num 4
+                                .plan-card__text Строительство дворца для турнира
+                            .plan-card__inner
+                                .plan-card__num 5
+                                .plan-card__text Размещение гаражей для гостевого автотранспорта
+                    .slider__item
+                        .plan-card
+                            .plan-card__inner
+                                .plan-card__num 6
+                                .plan-card__text Постройка сверхмощной радиостанции для передачи всему миру сенсационных результатов
+                    .slider__item.slider__item--double
+                        .plan-card.plan-card--double.plan-card--last
+                            .plan-card__inner
+                                .plan-card__num 7
+                                .plan-card__text Создание аэропорта «Большие Васюки» с регулярным отправлением почтовых самолётов и дирижаблей во все концы света, включая Лос-Анжелос и Мельбурн
+                .slider__controls
+                    button.btn.btn-square.btn-dark.slider__button.slider__button--prev
+                        img(src="/static/img/arrow.svg")
+                    .slider__pagination-dots
+                    button.btn.btn-square.btn-dark.slider__button.slider__button--next
+                        img(src="/static/img/arrow.svg")
+            .plan-img
+                img.img(src="/static/img/airplane.png")
+    section#participants.participant
+        .container
+            .slider-container.participant-slider(data-slider-type='auto' data-slides-to-show="3"  data-show-dots="false" data-show-numbers="true")
+                .slider__header
+                    .h1 Участники турнира
+                .slider__controls
+                    button.btn.btn-square.btn-dark.slider__button.slider__button--prev
+                        img(src="/static/img/arrow.svg")
+                    .slider__pagination-numbers 1/3
+                    button.btn.btn-square.btn-dark.slider__button.slider__button--next
+                        img(src="/static/img/arrow.svg")
+                    .slider__pagination-dots
+                .slider
+                    .slider__item
+                        +participant-card("Хозе-Рауль Капабланка")
+                    .slider__item
+                        +participant-card("Эммануил Ласкер")
+                    .slider__item
+                        +participant-card("Александр Алехин")
+                    .slider__item
+                        +participant-card("Арон Нимцович")
+                    .slider__item
+                        +participant-card("Рихард Рети")
+                    .slider__item
+                        +participant-card("Остап Бендер")
+
+    +running-line()
+    footer.footer
+        .container
+            .footer-text Все персонажи, события и цитаты являются вымышленными и не принадлежат создателям сайта. С подробностями можно познакомиться в главе XXXIV романа Ильи Ильфа и Евгения Петрова «Двенадцать стульев».
+
+

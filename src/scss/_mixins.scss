@@ -1,0 +1,43 @@
+@use "sass:map";
+@use "sass:string";
+@use "variables" as *;
+
+@mixin media($mode: screen, $from: false, $to: false, $extra: ()) {
+  @each $key in ($from, $to) {
+    @if $key and not map.has-key($resolutions, $key) {
+      @error "Available values for ($from, $to) args are: #{map.keys($resolutions)}";
+    };
+  };
+  $conditions: $mode;
+
+  @each $key, $value in (min-width: $from, max-width: $to,) {
+    @if $value {
+      $modifier: if($key=='min-width', -1px, 0px);
+      $condition: " and (#{$key}: #{map.get($resolutions, $value) - $modifier})";
+      $conditions: string.insert($conditions, $condition, -1);
+    }
+  }
+
+  @each $key, $value in $extra {$condition: " and (#{$key}: #{$value})"}
+  @media #{$conditions} {
+    @content;
+  }
+}
+
+
+@mixin title-h1 {
+  color: $dark;
+  font-family: $font_merri;
+  font-size: 36px;
+  font-weight: 400;
+  line-height: 110%;
+  text-transform: uppercase;
+}
+@mixin title-h2 {
+  color: $dark;
+  font-family: $font_merri;
+  font-size: 28px;
+  font-weight: 400;
+  line-height: 135%;
+  text-transform: uppercase;
+}
