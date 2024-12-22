@@ -186,7 +186,7 @@ a {
         left: 0;
         top: 0;
         &-city {
-            background-image: url("/static/img/firstscreen/1920.png");
+            background-image: url("../img/firstscreen/1920.png");
             position: absolute;
             width: 100%;
             height: 100%;
@@ -208,7 +208,7 @@ a {
             }
         }
         &-texture {
-            background-image: url("/static/img/second/paper_texture.png");
+            background-image: url("../img/second/paper_texture.png");
             position: absolute;
             width: 100%;
             height: 100%;
@@ -222,8 +222,10 @@ a {
             position: absolute;
             width: 100%;
             height: 100%;
-            left: 0;
+            left: 50%;
             top: 0;
+            transform: translateX(-50%);
+            z-index: 5;
         }
         &-pawn {
             @include m.media($from: lg) {
@@ -231,7 +233,7 @@ a {
                 height: 122px;
                 position: absolute;
                 z-index: 5;
-                background-image: url("/static/img/firstscreen/pawn.png");
+                background-image: url("../img/firstscreen/pawn.png");
                 background-size: contain;
                 background-repeat: no-repeat;
                 bottom: 10px;
@@ -243,7 +245,7 @@ a {
             height: 121px;
             position: absolute;
             z-index: 5;
-            background-image: url("/static/img/firstscreen/horse.png");
+            background-image: url("../img/firstscreen/horse.png");
             background-size: contain;
             background-repeat: no-repeat;
             bottom: -4%;
@@ -608,7 +610,7 @@ a {
             @include m.media($to: lg) {
                 padding: 20px;
                 padding-top: 62px;
-                background: url("/static/img/participants/Cooper-Union-Stamp-Paper.png");
+                background: url("../img/participants/Cooper-Union-Stamp-Paper.png");
                 background-size: cover;
                 height: 300px;
                 display: flex;
@@ -617,7 +619,7 @@ a {
                 position: relative;
                 &::after {
                     content: "";
-                    background-image: url("/static/img/second/paper_texture.png");
+                    background-image: url("../img/second/paper_texture.png");
                     position: absolute;
                     width: 100%;
                     height: 100%;
@@ -652,13 +654,13 @@ a {
             width: 100%;
             padding: 20px;
             gap: 16px;
-            background: url("/static/img/participants/Cooper-Union-Stamp-Paper.png");
+            background: url("../img/participants/Cooper-Union-Stamp-Paper.png");
             background-size: cover;
             height: 100%;
             position: relative;
             &::after {
                 content: "";
-                background-image: url("/static/img/second/paper_texture.png");
+                background-image: url("../img/second/paper_texture.png");
                 position: absolute;
                 width: 100%;
                 height: 100%;
@@ -776,7 +778,7 @@ a {
                 left: 0;
                 right: 0;
                 bottom: 0;
-                background: url("/static/img/participants/Cooper-Union-Stamp-Paper.png");
+                background: url("../img/participants/Cooper-Union-Stamp-Paper.png");
                 z-index: 0;
             }
 
