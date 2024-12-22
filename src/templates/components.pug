@@ -1,0 +1,59 @@
+extend layouts/_base
+
+block content
+    .container(style="margin-top: 1rem")
+        button.btn.btn-long.btn-dark
+            span Поддержать
+            span шахматную мысль
+    .container(style="margin-top: 1rem")
+        button.btn.btn-long.btn-outline-dark
+            span Подробнее
+            span о турнире
+    .container(style="margin-top: 5rem; display: flex; gap: 8px")
+        button.btn.btn-square.btn-dark
+            img(src="/static/img/arrow.svg")
+        button.btn.btn-square.btn-dark(disabled)
+            img(src="/static/img/arrow.svg")
+        button.btn.btn-short.btn-outline-blue
+            span Подробнее
+    .container(style="margin-top: 1rem")
+        .h1 Участники турнира
+        .participant-card
+            .participant-card__img
+                .participant-card__img-bg
+                img(src="/static/img/participants/participant_empty.svg" alt="")
+            .participant-card__title Хозе-Рауль Капабланка
+            .participant-card__text Чемпион мира по шахматам
+            a(href="").btn.btn-short.btn-outline-blue.participant-card__btn
+                span Подробнее
+    .container(style="margin-top: 1rem")
+        .slider-container(data-slides-to-show="5" data-show-dots="true" data-show-numbers="false")
+            .slider
+                .slider__item Слайд 1
+                .slider__item Слайд 2
+                .slider__item Слайд 3
+                .slider__item Слайд 4
+                .slider__item Слайд 5
+            .slider__controls
+                button.btn.btn-square.btn-dark.slider__button.slider__button--prev
+                    img(src="/static/img/arrow.svg")
+                button.btn.btn-square.btn-dark.slider__button.slider__button--next
+                    img(src="/static/img/arrow.svg")
+            .slider__pagination
+                .slider__pagination-dots
+
+    div(style="margin-top: 5rem;")
+        - 
+            var lines = [
+                'Дело помощи утопающим — дело рук самих утопающих!',
+                'Шахматы двигают вперед не только культуру, но и экономику!',
+                'Лед тронулся, господа присяжные заседатели!'
+            ];
+        .running-line
+            .running-line__container
+                .running-line__group
+                    for l in lines
+                        span.running-line__item= l
+                .running-line__group
+                    for l in lines
+                        span.running-line__item= l

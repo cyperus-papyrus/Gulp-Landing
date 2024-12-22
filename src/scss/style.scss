@@ -1,0 +1,831 @@
+@use "variables" as v;
+@use "mixins" as m;
+@use "fonts" as *;
+
+*,
+*:before,
+*:after {
+    margin: 0;
+    padding: 0;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: v.$font_golos;
+}
+
+a {
+    text-decoration: none;
+}
+
+.img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+
+.text-red {
+    color: v.$red;
+    font-weight: 700;
+}
+
+.text-blue {
+    color: v.$blue;
+}
+
+.clear-both {
+    clear: both;
+}
+
+.container {
+    max-width: 1262px;
+    margin: auto;
+    padding: 0 20px;
+}
+
+.btn {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: transparent;
+    border: 2px solid transparent;
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: 500;
+    line-height: 120%;
+    letter-spacing: 0px;
+    transition: all 0.2s;
+    font-family: v.$font_golos;
+    &-long {
+        gap: 4px;
+        border-radius: 66px;
+        padding: 18px 20px;
+        line-height: 130%;
+        width: 100%;
+        height: 47px;
+        @include m.media($from: lg) {
+            flex-direction: column;
+            gap: 0;
+            padding: 20px;
+            width: 263px;
+            height: 72px;
+        }
+    }
+    &-short {
+        padding: 12x;
+        border-radius: 62px;
+        width: 113px;
+        height: 35px;
+    }
+    &-square {
+        width: 44px;
+        height: 44px;
+        border-radius: 50%;
+    }
+    &-dark {
+        background-color: v.$dark;
+        border-color: v.$dark;
+        color: v.$white;
+        &:hover {
+            background-color: v.$yellow;
+            border-color: v.$yellow;
+            color: v.$dark;
+        }
+    }
+    &-outline-dark {
+        border-color: v.$dark;
+        color: v.$dark;
+        &:hover {
+            background-color: v.$dark;
+            border-color: v.$dark;
+            color: v.$white;
+        }
+    }
+    &-outline-blue {
+        border-color: v.$blue;
+        color: v.$blue;
+        &:hover {
+            background-color: v.$blue;
+            border-color: v.$blue;
+            color: v.$white;
+        }
+    }
+    &:disabled {
+        background-color: v.$light;
+        border-color: v.$light;
+        cursor: auto;
+        pointer-events: none;
+    }
+}
+
+.intro {
+    padding-top: 18px;
+    background-color: v.$beige;
+    position: relative;
+    @include m.media($from: lg) {
+        padding-top: 26px;
+        min-height: 700px;
+    }
+    &__title {
+        position: relative;
+        z-index: 10;
+        padding-top: 40px;
+        padding-bottom: 291px;
+        @include m.media($from: lg) {
+            max-width: 542px;
+            padding-top: 62px;
+            padding-bottom: 130px;
+        }
+        &-line {
+            @include m.title-h1;
+            @include m.media($from: lg) {
+                font-size: 60px;
+            }
+            &--center {
+                text-align: center;
+            }
+            &--right {
+                text-align: right;
+            }
+        }
+    }
+    &__text {
+        color: v.$gray;
+        font-family: v.$font_golos;
+        font-size: 18px;
+        font-weight: 400;
+        line-height: 130%;
+        margin-top: 24px;
+        margin-bottom: 32px;
+    }
+    &__buttons {
+        display: flex;
+        gap: 14px;
+        @include m.media($to: lg) {
+            flex-direction: column;
+        }
+        .btn-outline-dark {
+            @include m.media($to: lg) {
+                background: v.$white;
+                opacity: 0.9;
+                border-color: v.$white;
+                color: v.$dark;
+            }
+        }
+    }
+    &__logo {
+        position: relative;
+        z-index: 10;
+    }
+    &__bg {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        left: 0;
+        top: 0;
+        &-city {
+            background-image: url("/static/img/firstscreen/1920.png");
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            background-repeat: no-repeat;
+            background-position-y: bottom;
+            background-position-x: 77%;
+            background-size: cover;
+            z-index: 0;
+            @include m.media($to: lg) {
+                max-height: 375px;
+                bottom: -10px;
+                top: unset;
+            }
+            @include m.media($from: lg) {
+                background-position: center;
+                background-size: initial;
+            }
+        }
+        &-texture {
+            background-image: url("/static/img/second/paper_texture.png");
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            mix-blend-mode: color-burn;
+            z-index: 1;
+            background-size: contain;
+        }
+        .container {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            left: 0;
+            top: 0;
+        }
+        &-pawn {
+            @include m.media($from: lg) {
+                width: 82px;
+                height: 122px;
+                position: absolute;
+                z-index: 5;
+                background-image: url("/static/img/firstscreen/pawn.png");
+                background-size: contain;
+                background-repeat: no-repeat;
+                bottom: 10px;
+                left: 90%;
+            }
+        }
+        &-horse {
+            width: 121px;
+            height: 121px;
+            position: absolute;
+            z-index: 5;
+            background-image: url("/static/img/firstscreen/horse.png");
+            background-size: contain;
+            background-repeat: no-repeat;
+            bottom: -4%;
+            left: 36%;
+            @include m.media($from: xs) {
+                left: 50%;
+            }
+            @include m.media($from: lg) {
+                width: 154px;
+                height: 244px;
+                bottom: -10%;
+                left: 63%;
+            }
+        }
+    }
+}
+
+.announcement {
+    margin-top: 48px;
+    margin-bottom: 21px;
+
+    @include m.media($from: lg) {
+        margin-top: 80px;
+        margin-bottom: 17px;
+    }
+    &__text {
+        &-part1,
+        &-part2 {
+            @include m.title-h2;
+            @include m.media($from: lg) {
+                position: relative;
+                top: 26px;
+                font-size: 36px;
+            }
+        }
+        &-part1 {
+            @include m.media($to: lg) {
+                order: 0;
+            }
+        }
+        &-part2 {
+            @include m.media($to: lg) {
+                order: 2;
+            }
+        }
+        @include m.media($to: lg) {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+        @include m.media($from: lg) {
+            min-height: 250px;
+        }
+    }
+
+    &__image {
+        max-width: 394px;
+        width: 100%;
+        @include m.media($to: lg) {
+            order: 1;
+            margin-top: 24px;
+            margin-bottom: 24px;
+        }
+        @include m.media($from: lg) {
+            float: right;
+            margin-left: 35px;
+            width: 100%;
+            height: auto;
+        }
+    }
+}
+
+.chess-blow {
+    display: flex;
+    align-items: center;
+    gap: 44px;
+    @include m.media($to: lg) {
+        flex-direction: column;
+        gap: 19px;
+    }
+    &__img {
+        flex-shrink: 0;
+        position: relative;
+        margin-left: -19px;
+        @include m.media($from: lg) {
+            margin-left: -28px;
+        }
+        img {
+            width: 105%;
+            position: relative;
+            z-index: 0;
+        }
+    }
+    &__right {
+        display: flex;
+        flex-direction: column;
+        position: relative;
+        z-index: 1;
+    }
+    &__text {
+        @include m.title-h2;
+        @include m.media($from: lg) {
+            font-size: 36px;
+        }
+    }
+    &__subtext {
+        font-family: v.$font_golos;
+        font-size: 18px;
+        line-height: 120%;
+        @include m.media($from: lg) {
+            font-size: 20px;
+        }
+    }
+}
+
+.table {
+    margin-top: 44px;
+    margin-bottom: 24px;
+    @include m.media($from: lg) {
+        margin-top: 60px;
+        margin-bottom: 48px;
+    }
+    &-row {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+
+        @include m.media($to: lg) {
+            padding: 16px 0;
+            gap: 12px;
+        }
+        & + & {
+            border-top: 2px solid v.$lgray;
+        }
+    }
+    &-header {
+        opacity: 0.7;
+        color: v.$gray;
+        font-family: v.$font_golos;
+        font-size: 20px;
+        font-weight: 400;
+        line-height: 120%;
+
+        @include m.media($from: lg) {
+            width: 306px;
+            border-right: 2px solid v.$lgray;
+            padding: 16px 16px 16px 0;
+        }
+    }
+    &-text {
+        color: v.$gray;
+        font-family: v.$font_golos;
+        font-size: 20px;
+        font-weight: 600;
+        line-height: 120%;
+        .crossed {
+            text-decoration: line-through 2px;
+            text-decoration-color: v.$red;
+            margin-right: 12px;
+        }
+        @include m.media($from: lg) {
+            padding: 16px 0 16px 16px;
+        }
+    }
+}
+
+.running-line {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    overflow: hidden;
+    width: 100%;
+    background-color: v.$red;
+    padding: 18px 12px;
+    height: 60px;
+    position: relative;
+    z-index: 10;
+    &__container {
+        animation: scroll 20s linear infinite;
+        float: left;
+        white-space: nowrap;
+        display: flex;
+    }
+    &__group {
+        display: flex;
+        flex-shrink: 0;
+    }
+    &__item {
+        color: v.$white;
+        flex: 0 0 auto;
+        margin-right: 18px;
+        margin-left: 12px;
+        font-family: v.$font_merri;
+        font-size: 22px;
+        font-weight: 400;
+        line-height: 110%;
+        text-transform: uppercase;
+        position: relative;
+        &::after {
+            content: "";
+            position: absolute;
+            right: -18px;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 6px;
+            height: 6px;
+            background-color: v.$white;
+            border-radius: 50%;
+        }
+    }
+}
+
+@keyframes scroll {
+    0% {
+        transform: translateX(0);
+    }
+    100% {
+        transform: translateX(-50%);
+    }
+}
+
+.slider {
+    display: flex;
+    gap: 20px;
+    transition: transform 0.5s ease;
+    &__header {
+        @include m.title-h1;
+        @include m.media($from: lg) {
+            font-size: 54px;
+        }
+    }
+    &-container {
+        overflow: hidden;
+        position: relative;
+    }
+    &__item {
+        flex-shrink: 0;
+    }
+    &__pagination-dots {
+        height: 10px;
+        display: flex;
+        gap: 10px;
+    }
+    &__pagination-dot {
+        width: 10px;
+        height: 10px;
+        border-radius: 50%;
+        background-color: v.$light;
+        &.active {
+            background-color: v.$dark;
+        }
+    }
+    &__controls {
+        display: flex;
+        gap: 14px;
+        align-items: center;
+        justify-content: center;
+    }
+    &__button {
+        flex-shrink: 0;
+        &--prev {
+            img {
+                transform: scaleX(-1);
+            }
+        }
+    }
+}
+
+.plan {
+    overflow: hidden;
+    .container {
+        position: relative;
+    }
+    &-slider {
+        margin-top: 120px;
+        @include m.media($from: lg) {
+            margin-top: 165px;
+            .slider__controls {
+                display: none;
+            }
+        }
+        .slider {
+            margin-top: 148px;
+            @include m.media($from: lg) {
+                display: grid;
+                grid-template-columns: repeat(3, 394px);
+                grid-template-rows: repeat(3, auto);
+                gap: 20px;
+                margin-top: 0;
+            }
+            &__header {
+                @include m.media($from: lg) {
+                    max-width: 800px;
+                }
+            }
+            &__item {
+                min-height: 300px;
+                .plan-card__inner:first-child {
+                    @include m.media($to: lg) {
+                        padding-top: 62px;
+                    }
+                }
+                @include m.media($from: lg) {
+                    width: 394px;
+                    min-height: 112px;
+                    &--double {
+                        grid-column: span 2;
+                        width: 808px;
+                    }
+                    &--height {
+                        grid-row: span 2;
+                        height: 244px;
+                    }
+                }
+            }
+            &__controls {
+                margin-top: 28px;
+            }
+        }
+        &__miniheader {
+            display: flex;
+            align-items: flex-start;
+            gap: 12px;
+            flex-direction: column;
+
+            margin-bottom: 20px;
+            @include m.media($from: lg) {
+                gap: 16px;
+                flex-direction: row;
+                align-items: last baseline;
+                margin-bottom: 54px;
+            }
+            span {
+                font-family: v.$font_golos;
+                font-size: 20px;
+                font-weight: 400;
+                line-height: 120%;
+                letter-spacing: 0px;
+                text-align: left;
+                text-transform: none;
+                margin-top: 12px;
+                @include m.media($from: lg) {
+                    max-width: 280px;
+                }
+            }
+        }
+    }
+    &-card {
+        width: 100%;
+        height: 100%;
+
+        &--double {
+            display: flex;
+            gap: 20px;
+            flex-direction: column;
+
+            @include m.media($from: lg) {
+                flex-direction: row;
+                grid-column: span 2;
+            }
+            @include m.media($to: lg) {
+                padding: 20px;
+                padding-top: 62px;
+                background: url("/static/img/participants/Cooper-Union-Stamp-Paper.png");
+                background-size: cover;
+                height: 300px;
+                display: flex;
+                align-items: center;
+                justify-content: flex-start;
+                position: relative;
+                &::after {
+                    content: "";
+                    background-image: url("/static/img/second/paper_texture.png");
+                    position: absolute;
+                    width: 100%;
+                    height: 100%;
+                    top: 0;
+                    left: 0;
+                    mix-blend-mode: color-burn;
+                    z-index: 0;
+                    background-size: contain;
+                }
+                .plan-card__inner {
+                    padding: 0 !important;
+                    background: unset;
+                    height: auto;
+                    &::after {
+                        background-image: unset;
+                    }
+                }
+                .plan-card__inner + .plan-card__inner {
+                    margin-top: 8px;
+                }
+            }
+        }
+        &--last {
+            .plan-card__inner {
+                @include m.media($from: lg) {
+                    padding-right: 318px;
+                }
+            }
+        }
+        &__inner {
+            display: flex;
+            width: 100%;
+            padding: 20px;
+            gap: 16px;
+            background: url("/static/img/participants/Cooper-Union-Stamp-Paper.png");
+            background-size: cover;
+            height: 100%;
+            position: relative;
+            &::after {
+                content: "";
+                background-image: url("/static/img/second/paper_texture.png");
+                position: absolute;
+                width: 100%;
+                height: 100%;
+                top: 0;
+                left: 0;
+                mix-blend-mode: color-burn;
+                background-size: contain;
+                z-index: 0;
+            }
+            @include m.media($from: lg) {
+                padding: 20px;
+            }
+        }
+        &__num {
+            width: 36px;
+            height: 36px;
+            color: v.$dark;
+            font-family: v.$font_golos;
+            font-size: 20px;
+            font-weight: 600;
+            line-height: 120%;
+            border-radius: 60px;
+            background: v.$white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+        }
+        &__text {
+            color: v.$dark;
+            font-family: v.$font_golos;
+            font-size: 18px;
+            font-weight: 500;
+            line-height: 120%;
+            letter-spacing: 0px;
+            text-align: left;
+            @include m.media($from: lg) {
+                font-size: 20px;
+            }
+        }
+    }
+    &-img {
+        position: absolute;
+        bottom: 35%;
+        width: 335px;
+        height: 182px;
+        @include m.media($from: xs) {
+            bottom: 38%;
+        }
+        @include m.media($to: lg) {
+            transform: translate(-50%, -30%);
+            left: 50%;
+        }
+        @include m.media($from: lg) {
+            bottom: 0;
+            right: -60px;
+            width: 394px;
+            height: 244px;
+        }
+
+        @media screen and (max-width: 1339px) {
+            right: -25px;
+        }
+    }
+}
+.participant {
+    margin-top: 120px;
+    margin-bottom: 100px;
+    &-slider {
+        @include m.media($to: lg) {
+            margin-bottom: 100px;
+            padding-bottom: 84px;
+        }
+        @include m.media($from: lg) {
+            margin-top: 200px;
+            margin-bottom: 140px;
+        }
+        .slider__header {
+            margin-bottom: 40px;
+            @include m.media($from: lg) {
+                margin-bottom: 60px;
+            }
+        }
+        .slider__controls {
+            position: absolute;
+            z-index: 10;
+            @include m.media($to: lg) {
+                bottom: 0;
+                left: 50%;
+                transform: translateX(-50%);
+            }
+            @include m.media($from: lg) {
+                top: 0;
+                right: 0;
+            }
+        }
+    }
+    &-card {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        &__img {
+            width: 244px;
+            height: 244px;
+            border-radius: 149.11px;
+            overflow: hidden;
+            position: relative;
+            margin-bottom: 28px;
+            background-color: v.$dgray;
+
+            &-bg {
+                position: absolute;
+                top: 0;
+                left: 0;
+                right: 0;
+                bottom: 0;
+                background: url("/static/img/participants/Cooper-Union-Stamp-Paper.png");
+                z-index: 0;
+            }
+
+            img {
+                position: absolute;
+                width: 100%;
+                height: 254px;
+                top: 16px;
+                left: 50%;
+                transform: translateX(-50%);
+                z-index: 2;
+            }
+        }
+        &__title {
+            color: v.$dark;
+            font-family: v.$font_golos;
+            font-size: 24px;
+            font-weight: 600;
+            line-height: 120%;
+            letter-spacing: 0px;
+            text-align: left;
+            margin-bottom: 8px;
+        }
+        &__text {
+            color: v.$dark;
+            font-family: v.$font_golos;
+            font-size: 20px;
+            font-weight: 400;
+            line-height: 120%;
+            letter-spacing: 0px;
+            text-align: left;
+            opacity: 0.6;
+            margin-bottom: 20px;
+        }
+    }
+}
+
+.footer {
+    background-color: v.$beige;
+    padding: 40px 0 60px;
+    @include m.media($from: lg) {
+        padding-bottom: 72px;
+    }
+    &-text {
+        color: v.$gray;
+        font-family: v.$font_golos;
+        font-size: 16px;
+        font-weight: 400;
+        line-height: 120%;
+        opacity: 0.6;
+    }
+}
